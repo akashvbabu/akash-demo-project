@@ -1,0 +1,32 @@
+<div>
+    <label>Phone Number:
+        <input [(ngModel)]="phoneNumber.phoneNumber" placeholder="777-888-9999"/>
+        <button (click)="onGenerateCombinations(phoneNumber)">Verify And Generate</button>
+    </label>
+    <h2>Combinations: </h2>
+    <ul class="combinations">
+        <p>Total Hits: {{phoneEntity.totalHits}}</p>
+    </ul>
+    <div class="wrapper">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+          <ng-container matColumnDef="phoneNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="alphaNumericCombination">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Combination </th>
+            <td mat-cell *matCellDef="let element"> {{element.alphaNumericCombination}} </td>
+          </ng-container>
+      
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <!-- Angular 8 pagination -->
+        <div class="page-select">
+          <mat-paginator [length]= "phoneEntity.totalHits" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="[5,10]" (page)="pageEvent=getNextPage($event)"showFirstLastButtons></mat-paginator>
+        </div>  
+      </div>
+</div>
