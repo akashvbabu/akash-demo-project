@@ -6,6 +6,7 @@ services:
 script:
   - cd akash-demo
   - mvn clean verify
+  - docker build -t akashdollar/akash-demo
   - cd ..
   - cd akash-demo-app-angular
   - docker build -t akashdollar/akash-demo-app-angular .
@@ -13,5 +14,6 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push akashdollar/akash-demo;
     docker push akashdollar/akash-demo-app-angular;
     fi
