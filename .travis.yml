@@ -1,9 +1,17 @@
 jdk: openjdk11
+
 services:
   - docker
+
 script:
   - cd akash-demo
   - mvn clean verify
   - cd ..
   - cd akash-demo-app-angular
-  - docker build .
+  - docker build -t akash-demo-app-angular .
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push akashdollar/akash-demo-app-angular;
+    fi
