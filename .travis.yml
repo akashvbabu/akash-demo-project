@@ -6,7 +6,7 @@ services:
 script:
   - cd akash-demo
   - mvn clean verify
-  - docker build -t akashdollar/akash-demo
+  - docker build -t akashdollar/akash-demo .
   - cd ..
   - cd akash-demo-app-angular
   - docker build -t akashdollar/akash-demo-app-angular .
