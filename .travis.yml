@@ -1,4 +1,9 @@
 jdk: openjdk11
+services:
+  - docker
 script:
   - cd akash-demo
   - mvn clean verify
+  - cd ..
+  - cd akash-demo-app-angular
+  - docker build .

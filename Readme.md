@@ -24,7 +24,7 @@ docker build -t akash-demo-backend .
 docker run -d -p 8080:8080 akash-demo-backend:latest
 ```
 
-To run the UI (node.js >= 10.19.0)
+To run the UI (node.js >= 10.19.0 and angular cli 9.1.7)
 ```
 cd akash-demo-app-angular
 ng build
