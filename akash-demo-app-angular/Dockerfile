@@ -11,6 +11,4 @@ RUN npm install -g @angular/cli@9.1.7
 
 EXPOSE 4200
 
-RUN ls
-
-CMD ["ng", "serve"]
+CMD ["ng", "serve", "--host", "0.0.0.0"]

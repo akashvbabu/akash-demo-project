@@ -16,7 +16,7 @@ mvn clean package
 java -jar /target/akash-demo-0.0.1-SNAPSHOT.jar
 ```
 
-To run the backen application (using docker):
+To run the backend application (using docker):
 
 ```
 cd akash-demo
@@ -24,9 +24,26 @@ docker build -t akash-demo-backend .
 docker run -d -p 8080:8080 akash-demo-backend:latest
 ```
 
+To run the backend using the lastest prebuilt docker image:
+```
+docker run -d -p 8080:8080 akashdollar/akash-demo
+```
+
 To run the UI (node.js >= 10.19.0 and angular cli 9.1.7)
 ```
 cd akash-demo-app-angular
 ng build
 ng serve
+```
+
+To run the UI using docker
+```
+cd akash-demo-app-angular
+docker build -t akash-demo-app-angular .
+docker run -d -p 4200:4200 akash-demo-app-angular:latest
+```
+
+To run the UI using the latest prebuild docker image:
+```
+docker run -d -p 4200:4200 akashdollar/akash-demo-app-angular
 ```
