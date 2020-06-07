@@ -8,7 +8,7 @@ script:
   - mvn clean verify
   - cd ..
   - cd akash-demo-app-angular
-  - docker build -t akash-demo-app-angular .
+  - docker build -t akashdollar/akash-demo-app-angular .
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
