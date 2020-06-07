@@ -5,6 +5,8 @@ COPY . /app
 
 WORKDIR /app
 
+RUN ls
+
 RUN npm install -g @angular/cli@9.1.7
 
 RUN npm intall
