@@ -5,12 +5,12 @@ COPY . /app
 
 WORKDIR /app
 
-RUN ls
+RUN npm install
 
 RUN npm install -g @angular/cli@9.1.7
 
-RUN npm intall
-
 EXPOSE 4200
+
+RUN ls
 
 CMD ["ng", "serve"]
