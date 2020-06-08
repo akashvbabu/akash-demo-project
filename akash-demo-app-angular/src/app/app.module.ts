@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { TableComponent } from './table/table.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule} from '@angular/material/input';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -20,8 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     AppComponent,
     PhoneinputComponent,
-    MessagesComponent,
-    TableComponent  
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

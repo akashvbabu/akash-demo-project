@@ -44,6 +44,7 @@ export class PhoneinputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Generate the combinations using the phoneNumber from the html component
   onGenerateCombinations(phone:Phone) {
     this.phoneNumberToUse = phone;
     this.phoneService.generateCombinations(this.phoneNumberToUse.phoneNumber).subscribe(() => {
@@ -54,6 +55,8 @@ export class PhoneinputComponent implements OnInit {
     });
   }
 
+  // This method is used initially in combination with the generation of combinations to allow generation of combinations and also 
+  // retrieve the generated combinations to show the first page of results
   getCombinations(pageSize:number, pageNumber:number): void {
     if (this.phoneNumberToUse != null) {
       this.phoneService.getCombinations(this.phoneNumberToUse.phoneNumber, pageNumber, pageSize)
@@ -67,6 +70,7 @@ export class PhoneinputComponent implements OnInit {
     }
   }
 
+  // This handles the paging event to retrieve the next page
   getNextPage(event: PageEvent):PageEvent {
     this.phoneService.getCombinations(this.phoneNumberToUse.phoneNumber, event.pageIndex, event.pageSize)
         .subscribe(phones => {
@@ -78,18 +82,5 @@ export class PhoneinputComponent implements OnInit {
           this.snackBar.open(err.error.message, 'OK', { duration: 5000 });
         });
         return event;
-  }
-
-  getManualPage(event: PageEvent): PageEvent {
-    this.phoneService.getCombinations(this.phoneNumberToUse.phoneNumber, event.pageIndex, event.pageSize)
-    .subscribe(phones => {
-      this.phoneEntity = phones;
-      this.dataSource = new MatTableDataSource(this.phoneEntity.phoneNumberCombinations);
-      this.pageIndex = event.pageIndex;
-    },
-    err => {
-      this.snackBar.open(err.error.message, 'OK', { duration: 5000 });
-    });
-    return event;
   }
 }
