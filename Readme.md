@@ -47,3 +47,5 @@ To run the UI using the latest prebuild docker image:
 ```
 docker run -d -p 4200:4200 akashdollar/akash-demo-app-angular
 ```
+
+Once you have both the backend and UI running locally, navigate to http://localhost:4200 to see the working application
